@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Life History Timeline</title>
+  <style>
+    /* Styling for the timeline container */
+    .timeline {
+      position: relative;
+      margin: 20px 0;
+      padding-left: 30px;
+      font-family: 'Courier New', Courier, monospace;
+      width: 1000px; /* Sets the width of the timeline */
+      margin-left: 200px; /* Moves the timeline 200px to the right */
+    }
+
+    /* Styling for the vertical line */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 45px;
+      width: 2px;
+      height: 100%;
+      background-color: #000;
+    }
+
+    /* Styling for each event in the timeline */
+    .timeline .event {
+      position: relative;
+      margin-bottom: 20px;
+      padding-left: 65px;
+    }
+
+    /* Styling for the year text */
+    .timeline .event .year {
+      font-weight: bold;
+      margin-bottom: 5px;
+      position: relative;
+      display: inline-block;
+      padding: 0 10px;
+      border: 2px solid #6c757d;
+      border-radius: 4px;
+      color: #000;
+    }
+
+    /* Styling for the good years */
+    .timeline .event .year.good {
+      background-color: #c3e6cb;
+    }
+
+    /* Styling for the bad years */
+    .timeline .event .year.bad {
+      background-color: #f8d7da;
+    }
+
+    /* Styling for the horizontal line and dot */
+    .timeline .event .year::before,
+    .timeline .event .year::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      height: 2px;
+      background-color: #000;
+    }
+
+    /* Styling for the horizontal line extending to the left of year */
+    .timeline .event .year::before {
+      left: -200%; /* Extends the line to the left */
+      transform: translateX(100%); /* Positions the line to the left */
+    }
+
+    /* Styling for the dot at the intersection of the vertical and horizontal lines */
+    .timeline .event .year::after {
+      left: -59px; /* Positions the dot to the left of the year */
+      transform: translateY(-50%); /* Centers the dot vertically */
+      width: 16px; /* Sets the width of the dot */
+      height: 16px; /* Sets the height of the dot */
+      border-radius: 50%; /* Makes the dot circular */
+      background-color: #000; /* Sets the background color of the dot */
+    }
+
+
+    /* Styling for the event description */
+    .timeline .event .description {
+      margin-left: 15px;
+    }
+
+    /* Styling for the key container */
+.key-container {
+  margin-top: 10px;
+  margin-left: 295px; /* Moves the timeline 200px to the right */
+  display: inline-block;
+  padding: 10px;
+  border: 2px solid #6c757d;
+  border-radius: 4px;
+}
+
+
+    /* Styling for the key items */
+    .key-item {
+      display: inline-block;
+      margin-right: 10px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .key-rectangle {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 5px;
+      border: 2px solid #6c757d;
+      border-radius: 4px;
+      color: #000;
+      vertical-align: middle;
+    }
+
+    .key-text {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 12px; /* Adjust the line height to match the height of the key-rectangle */
+    }
+
+    .key-text.good {
+      color: #000;
+    }
+
+    .key-text.bad {
+      color: #000;
+    }
+
+    /* Styling for the good year rectangle in the key */
+    .key-rectangle.good {
+      background-color: #c3e6cb;
+    }
+
+    /* Styling for the bad year rectangle in the key */
+    .key-rectangle.bad {
+      background-color: #f8d7da;
+    }
+
+    /* Styling for the days, weeks, months, and years */
+    #daysPassed,
+    #weeksPassed,
+    #monthsPassed,
+    #yearsPassed,
+    p{
+      font-family: 'Courier New', Courier, monospace;
+    }
+    
+        /* Additional styling for the icon */
+    .timeline .event .icon {
+      position: absolute;
+      top: 50%;
+      left: -30px;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: #000;
+    }
+
+  </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+  <p>
+    <span id="daysPassed"></span> Days... 
+    <span id="weeksPassed"></span> Weeks... 
+    <span id="monthsPassed"></span> Months... and 
+    <span id="yearsPassed"></span> Years
+  </p>
+
+  <div class="timeline">
+    <div class="event">
+      <div class="year good">1970</div>
+      <div class="description">Born - <i class="fa-solid fa-rocket"></i><br> It was a Thursday</div>
+    </div>
+    <div class="event">
+      <div class="year bad">1975</div>
+      <div class="description">I started primary school<br>  Didnt really enjoy that<br>I was bullied by teacher</div>
+    </div>
+    <div class="event">
+      <div class="year bad">1981</div>
+      <div class="description">Started secondary school <br> Didnt really enjoy that</div>
+    </div>
+    <div class="event">
+      <div class="year good">1985</div>
+      <div class="description">Started job in Boots the Chemist <br> Started to enjoy school <br> Did my highers <br> Had lots of friends <br> Great year for cars and music</div>
+    </div>
+    <div class="event">
+      <div class="year good">1988</div>
+      <div class="description">Left School <br> Started University at RGU in Aberdeen</div>
+    </div>
+    <div class="event">
+      <div class="year good">1991</div>
+      <div class="description">Did a placement year with Shell UK</div>
+    </div>
+      <div class="event">
+      <div class="year good">1992</div>
+      <div class="description">Back to RGU to do My Honours year <br> Started first company</div>
+    </div>
+    <div class="event">
+      <div class="year good">1993</div>
+      <div class="description">Started first job as Software Engineer <br> Didnt really enjoy that <br> Bought first house</div>
+    </div>
+    <div class="event">
+      <div class="year good">1995</div>
+      <div class="description">Changed jobs, second as Software Engineer</div>
+    </div>
+    <div class="event">
+      <div class="year good">2002</div>
+      <div class="description">Married</div>
+    </div>
+    <div class="event">
+      <div class="year good">2008</div>
+      <div class="description">Kid 1 born <br> Built own car and got it on road</div>
+    </div>
+    <div class="event">
+      <div class="year good">2010</div>
+      <div class="description">Kid 2 born</div>
+    </div>
+    <div class="event">
+      <div class="year good">2016</div>
+      <div class="description">Walked out of Job after 22 years<br>Codeclan</div>
+    </div> 
+    <div class="event">
+      <div class="year good">2017</div>
+      <div class="description">New job as Web Developer</div>
+    </div>
+    <div class="event">
+      <div class="year bad">2021</div>
+      <div class="description">Covid lockdown<br> Actually quite enjoyed it <br> Got to work from home full time </div>
+    </div>
+    <div class="event">
+      <div class="year good">2023</div>
+      <div class="description">Work in progress</div>
+    </div>
+  </div>
+
+  <div class="key-container">
+    <div class="key">
+      <div class="key-item">
+        <div class="key-rectangle good"></div>
+        <div class="key-text good">Good Year</div>
+      </div>
+      <div class="key-item">
+        <div class="key-rectangle bad"></div>
+        <div class="key-text bad">Bad Year</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Calculate the time passed
+    var currentDate = new Date();
+    var startDate = new Date('December 17, 1970');
+    var timeDiff = Math.abs(currentDate.getTime() - startDate.getTime());
+
+    // Calculate the number of days, weeks, months, and years
+    var daysPassed = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    var weeksPassed = Math.floor(daysPassed / 7);
+    var monthsPassed = Math.floor(daysPassed / 30.44);
+    var yearsPassed = Math.floor(daysPassed / 365.25);
+
+    // Display the results
+    document.getElementById('daysPassed').innerText = daysPassed.toString();
+    document.getElementById('weeksPassed').innerText = weeksPassed.toString();
+    document.getElementById('monthsPassed').innerText = monthsPassed.toString();
+    document.getElementById('yearsPassed').innerText = yearsPassed.toString();
+  </script>
+
+</body>
+</html>
